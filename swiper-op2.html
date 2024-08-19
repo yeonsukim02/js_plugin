@@ -25,11 +25,12 @@
         main .popular .container .popular_s .swiper-slide .book_name{margin: 10px 0; font-size: 1.1rem;}
         main .popular .container .popular_s .swiper-slide .info{color: #aaa}
         /* swiper-button은 absolute를 가지고 있기 때문에 위치를 자유롭게 설정할 수 있다. */
-        main .popular .container .swiper-button-prev {left: -50px;}
-        main .popular .container .swiper-button-next {right: -50px;}
+        main .popular .container .swiper-button-prev {left: -50px; color: #000;}
+        main .popular .container .swiper-button-next {right: -50px; color: #000;}
         /* swiper-slide 안에서는 속성값 자유롭게 변경 가능 */
-        main .popular .container .swiper-pagination-bullet {background-color: blue;} 
-        main .popular .container .swiper-pagination-bullet-active {background-color: #fff; bottom: -50px;} 
+        main .popular .container .swiper-pagination{bottom: -50px;}
+        main .popular .container .swiper-pagination-bullet {background-color: #000; opacity: 1;} 
+        main .popular .container .swiper-pagination-bullet-active {background-color: #fff;} 
     </style>
 </head>
 <body>
@@ -79,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- swiper-button에는 position:absolute 내장됨 -->
+                <!-- navigation, pagination, slide에는 position:absolute 내장됨, opacity: 0.2도 내장됨 -->
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
