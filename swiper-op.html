@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiper-op</title>
+    <link rel="stylesheet" href="./styles/base.css">
+    <!-- 스와이퍼 플러그인 필수 연결파일 -->
+    <!--플러그인 필수 css cdn 연결-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!--플러그인 필수 JS cdn 연결-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <style>
+        .op1 {width: 600px; margin: 50px auto; background-color: aqua;}
+        .op1 .swiper-slide {height: 300px; border: 2px solid red;}
+        .op1 .swiper-button-next {color: red;}
+        .op1 .swiper-button-prev {color: green;}
+        .op1 .swiper-button-prev, .swiper-button-next {transform: scale(0.5);}
+        .op1 .swiper-pagination-bullet {background-color: red; opacity: 0.5;}/* -bullet이라는 css명칭 추가해야 함, bullet에 투명도 내장되어 있음 */
+        .op1 .swiper-pagination-bullet-active {background-color: green;}/* 활성화 되어있는 bullet만 색상 변경 가능 */
+        .op1 .swiper-scrollbar {background-color: white;}
+        .op1 .swiper-scrollbar-drag {background-color: red;}/* -drag 추가하면 지나가는 막대 생성 가능 */
+
+        .op2 {width: 800px; background-color: #000;}
+        .op2 .swiper-slide {height: 300px;}
+        .op2 .swiper-button-next {color: #999;}
+        .op2 .swiper-button-prev {color: #999;}
+        .op2 .swiper-button-prev, .swiper-button-next {transform: scale(0.5);}
+        .op2 .swiper-scrollbar {background-color: #999;}
+        .op2 .swiper-scrollbar-drag {background-color: #fff;}
+    </style>
+</head>
+<body>
+    <div class="swiper op1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">1</div>
+            <div class="swiper-slide">2</div>
+            <div class="swiper-slide">3</div>
+            <div class="swiper-slide">4</div>
+            <div class="swiper-slide">5</div>
+            <div class="swiper-slide">6</div>
+        </div>
+        <!-- 추가 옵션 태그는 swiper-wrapper 밖으로 작성하기  -->
+        <!--  swiper navigation -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <!-- swiper pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- swiper scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+    <div class="swiper op2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">1</div>
+            <div class="swiper-slide">2</div>
+            <div class="swiper-slide">3</div>
+        </div>
+        <!-- 추가 옵션 태그는 swiper-wrapper의 형제로 작성  -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+    <script>
+        const op1 = new Swiper('.op1',{
+            autoplay:{delay:2000},
+            loop:true,
+
+            navigation: {
+                nextEl: '.op1 .swiper-button-next',
+                prevEl: '.op1 .swiper-button-prev',
+            /* 반드시 부모 태그(.op1) 추가해서 작성하기 */
+            },
+
+            pagination: {
+            el: '.op1 .swiper-pagination',
+            },
+
+            scrollbar: {
+            el: '.op1 .swiper-scrollbar',
+            },
+        })
+
+        const op2 = new Swiper('.op2',{
+            autoplay:{delay:3000},
+            loop:true,
+
+            navigation: {
+                nextEl: '.op2 .swiper-button-next',
+                prevEl: '.op2 .swiper-button-prev',
+            },
+
+            scrollbar: {
+            el: '.op2 .swiper-scrollbar',
+            },
+        })
+    </script>
+</body>
+</html>
